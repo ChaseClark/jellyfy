@@ -28,6 +28,9 @@ def jellyfy_filename(filename: str) -> str:
     name = name.replace(')','')
     name = name.replace('(','')
     name = name.replace('_',' ')
+    name = name.replace(']','')
+    name = name.replace('[','')
+    
     name = name.strip()
     if year is None:
         return filename
