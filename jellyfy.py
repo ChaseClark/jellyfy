@@ -27,8 +27,8 @@ def is_movie(path: str) -> bool:
 
 
 def remove_chars(text: str, bad_chars: str, space_chars: str) -> str:
-    text = ''.join(' ' if c in space_chars else c for c in text)
-    return ''.join(c for c in text if c not in bad_chars)
+    text = ''.join(' ' if c in space_chars else c for c in text) # replace with space
+    return ''.join(c for c in text if c not in bad_chars) # full delete from text
 
 
 def jellyfy_filename(filename: str) -> str:
@@ -47,7 +47,6 @@ def find_leftmost_4_digits(text):
     match = re.search(r'\d{4}', text)
     if match:
         return match.group()
-    return None
 
 
 def main():
