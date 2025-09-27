@@ -27,8 +27,8 @@ def is_movie(path: str) -> bool:
 
 
 def remove_chars(text: str, bad_chars: str, space_chars: str) -> str:
-    text = ''.join(' ' if c in space_chars else c for c in text) # replace with space
-    return ''.join(c for c in text if c not in bad_chars) # full delete from text
+    text = ''.join(' ' if c in space_chars else c for c in text)  # replace with space
+    return ''.join(c for c in text if c not in bad_chars)  # full delete from text
 
 
 def jellyfy_filename(filename: str) -> str:
@@ -37,6 +37,8 @@ def jellyfy_filename(filename: str) -> str:
     year = find_leftmost_4_digits(filename)
     name = name.split(year)[0]
     name = remove_chars(name.strip(), bad_chars='()[]', space_chars='._')
+    # remove extra space at end
+    name = name.strip()
 
     if year is None:
         return filename
